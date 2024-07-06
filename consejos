@@ -1,0 +1,18 @@
+import random
+from flask import Flask
+
+
+app = Flask(__name__)
+listas_consejos=["Elon Musk también aboga por la regulación de las redes sociales y la protección de los datos personales de los usuarios. Afirma que las redes sociales recopilan una enorme cantidad de información sobre nosotros, que luego puede utilizarse para manipular nuestros pensamientos y comportamientos.",
+                 "Las redes sociales tienen aspectos positivos y negativos, y debemos ser conscientes de ambos cuando utilicemos estas plataformas",
+                 "Elon Musk afirma que las redes sociales están diseñadas para mantenernos dentro de la plataforma, para que pasemos el mayor tiempo posible viendo contenidos"]
+
+@app.route("/")
+def index():
+    return f'<h1>Hola esta es mi pagina web y te dare consejos de la dependencia tecnologica</h1><a href="/Nuevo_consejo">veamos un consejo alazar</a>'
+
+@app.route("/Nuevo_consejo")
+def listas():
+    return f'<p>{random.choice(listas_consejos)}</p>'
+
+app.run(debug=True)
